@@ -7,7 +7,7 @@ app.use(express.json());
 app.post('/', async (req, res) => {
     console.log("Headers:", req.headers)
     console.log("Body:", req.body)
-    const authorization=req.headers['authorization']
+    const authorization = req.headers['authorization']
     if (authorization) {
         console.log("authorization:", authorization);
         if (bcrypt.compareSync(process.env.secret, authorization)) {  //secret is stored in the .ENV
